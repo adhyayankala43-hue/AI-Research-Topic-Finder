@@ -9,9 +9,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Initialize NLTK corpora
-for pkg in ('punkt', 'stopwords', 'wordnet'):
-    nltk.download(pkg, quiet=True)
+
 
 class ResearchTopicFinder:
     def __init__(self):
