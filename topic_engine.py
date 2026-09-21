@@ -22,7 +22,7 @@ class ResearchTopicFinder:
         })
         
         # Load the newly accumulated CSV file
-        self.papers = self._initialize_corpus('diverse_research_corpus.csv')
+        self.papers = self._initialize_corpus('diverse_research_corpus.csv.gz')
         
         self.vectorizer = TfidfVectorizer(max_features=250, ngram_range=(1, 2))
         self.tfidf_matrix = None
@@ -37,7 +37,7 @@ class ResearchTopicFinder:
     def _initialize_corpus(self, csv_filepath):
         try:
             # Read the dataset using pandas
-            df = pd.read_csv(csv_filepath)
+            df = pd.read_csv(csv_filepath, compression='gzip')
             
             # Convert the dataframe into a list of dictionaries
             corpus = df.to_dict('records')
