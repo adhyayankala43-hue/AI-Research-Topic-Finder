@@ -1,7 +1,0 @@
-""" 
-The primary research dataset (diverse_research_corpus.csv.gz) has been compressed to bypass GitHub's 25 MB file upload limit and optimize application memory.
-
-No Extraction Needed: Do not manually unzip or extract the archive before running the application.
-
-Automated Processing: The backend engine uses Pandas to seamlessly decompress and read the GZIP file on the fly during the Flask server boot sequence.
-"""
