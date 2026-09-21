@@ -68,12 +68,12 @@ diverse_topics = [
     "digital humanities"
 ]
 
-# Fetch 100 papers from each of the 7 topics (Total: ~700 papers)
+# Fetch 1000 papers 
 diverse_corpus_df = fetch_diverse_arxiv_papers(diverse_topics, max_per_topic=1000)
 
 print(f"\nSuccessfully accumulated {len(diverse_corpus_df)} diverse papers.")
 print("\nDomain Breakdown:")
 print(diverse_corpus_df['domain'].value_counts())
 
-# Save to CSV for your Topic Finder app
-diverse_corpus_df.to_csv("diverse_research_corpus.csv", index=False)
+# Save to CSV for your Topic Finder 
+diverse_corpus_df.to_csv("diverse_research_corpus.csv.gz", index=False, compression='gzip')
