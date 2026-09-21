@@ -8,7 +8,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.metrics.pairwise import cosine_similarity
+import os
+import nltk
 
+# Point NLTK to the local folder created during the Render build
+nltk.data.path.append(os.path.abspath('nltk_data'))
 
 
 class ResearchTopicFinder:
