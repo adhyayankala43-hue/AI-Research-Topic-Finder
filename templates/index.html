@@ -154,7 +154,7 @@
 </div>    
 
 <nav class="navbar navbar-custom px-4 py-3 shadow-sm">
-    <span class="navbar-brand mb-0 h1 text-white fw-bold">🔭 AI Research Topic Discovery System</span>
+    <span class="navbar-brand mb-0 h1 text-white fw-bold">🔭 AI Research Topic Discovery System<br><small style="font-size: 0.8rem; color: #94a3b8;">DATA ALCOTT SYSTEMS</small></span>
     <a href="/api/export" class="btn btn-outline-light btn-sm hover-elevate rounded-pill px-3">Export Report (JSON)</a>
 </nav>
 
@@ -197,17 +197,17 @@
     <div class="row mb-4">
         <div class="col-lg-6 animate-fade-up delay-3">
             <div class="card shadow-sm p-3 mb-4 h-100">
-                <h6 class="fw-bold" style="color: #818cf8;">Topic Recommendation Engine</h6>
+                <h6 class="fw-bold" style="color: #818cf8;">Search topics or keywords from the perspective of the domain</h6>
                 <div class="input-group my-3 shadow-sm rounded">
                     <input type="text" id="interestQuery" class="form-control" placeholder="e.g., medical deep learning for diagnosis">
-                    <button class="btn btn-primary px-4" style="background-color: #6366f1; border: none;" onclick="getRecommendations()">Find Topics</button>
+                    <button class="btn btn-primary px-4" style="background-color: #6366f1; border: none;" onclick="getRecommendations()">Search</button>
                 </div>
                 <div id="recResults" class="mt-2"></div>
             </div>
         </div>
         <div class="col-lg-6 animate-fade-up delay-4">
             <div class="card shadow-sm p-3 mb-4 h-100">
-                <h6 class="fw-bold mb-3" style="color: #818cf8;">K-Means Topic Clusters</h6>
+                <h6 class="fw-bold mb-3" style="color: #818cf8;">Trending Topic Clusters</h6>
                 <div id="clusterContainer" class="accordion mt-2 shadow-sm"></div>
             </div>
         </div>
@@ -284,7 +284,7 @@ async function loadDashboard() {
                 <div class="accordion-item animate-fade-up" style="animation-delay: ${idx * 0.1}s;">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#c${idx}">
-                            Cluster ${parseInt(id) + 1} &nbsp;<span class="badge rounded-pill ms-2" style="background-color: #4f46e5;">${items.length} Papers</span>
+                            Cluster ${parseInt(id) + 1} &nbsp;<span class="badge bg-indigo rounded-pill ms-2" style="background-color: #4f46e5;">${items.length} Papers</span>
                         </button>
                     </h2>
                     <div id="c${idx}" class="accordion-collapse collapse">
@@ -400,4 +400,4 @@ document.addEventListener('DOMContentLoaded', loadDashboard);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>s
+</html>
