@@ -17,7 +17,7 @@ def get_analytics():
         domain = None
     
     topics = engine.extract_latent_topics()
-    clusters = engine.cluster_topics()
+    clusters = engine.cluster_topics(domain)
     trends = engine.analyze_trends(domain)
     gaps = engine.identify_research_gaps()
 
