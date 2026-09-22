@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import gzip
 import joblib
 from collections import Counter, defaultdict
 import nltk
