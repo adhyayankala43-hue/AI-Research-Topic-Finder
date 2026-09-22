@@ -19,11 +19,11 @@ class ResearchTopicFinder:
         
         # Safely load stopwords (Render will use the pre-built nltk_data folder)
         try:
-            self.stop_words = set(stopwords.words('english'))
+            self.lemmatizer.lemmatize("testing")
         except LookupError:
-            nltk.download('stopwords', quiet=True)
-            nltk.download('wordnet', quiet=True)
-            self.stop_words = set(stopwords.words('english'))
+            print("Missing NLTK data. Downloading fallbacks...")
+            nltk.download('wordnet', quiet=True, download_dir='./nltk_data')
+            nltk.download('omw-1.4', quiet=True, download_dir='./nltk_data')
 
         self.stop_words = self.stop_words.union({
             'using', 'paper', 'approach', 'model', 'technique', 'analysis',
