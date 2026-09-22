@@ -68,13 +68,21 @@ class ResearchTopicFinder:
     def cluster_topics(self, n_clusters=3):
         if not self.papers: return {}
         clusters = defaultdict(list)
+        
         for paper in self.papers:
-            clusters[paper['cluster']].append({
-                'title': paper['title'],
-                'domain': paper['domain'],
-                'year': paper['year'],
-                'abstract': paper.get('abstract', 'No abstract available.')
-            })
+            # MEMORY FIX: Only send the top 25 papers per cluster to the frontend
+            if len(clusters[paper['cluster']]) < 25:
+                # Safely extract and truncate the abstract to save RAM
+                raw_abstract = str(paper.get('abstract', 'No abstract available.'))
+                short_abstract = raw_abstract[:250] + '...' if len(raw_abstract) > 250 else raw_abstract
+                
+                clusters[paper['cluster']].append({
+                    'title': paper['title'],
+                    'domain': paper['domain'],
+                    'year': paper['year'],
+                    'abstract': short_abstract
+                })
+                
         return dict(clusters)
 
     def analyze_trends(self, domain=None):
