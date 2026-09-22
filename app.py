@@ -4,7 +4,9 @@ import json
 
 app = Flask(__name__)
 engine = ResearchTopicFinder()
-
+@app.get("/ping")
+def ping():
+    return "ok"
 @app.route('/')
 def index():
     domains = sorted(list({p['domain'] for p in engine.papers}))
