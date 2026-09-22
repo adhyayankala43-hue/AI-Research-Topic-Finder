@@ -1,4 +1,5 @@
 import os
+import random
 import re
 import json
 import gzip
@@ -68,11 +69,10 @@ class ResearchTopicFinder:
     def cluster_topics(self, n_clusters=3):
         if not self.papers: return {}
         clusters = defaultdict(list)
-        
-        for paper in self.papers:
-            # MEMORY FIX: Only send the top 25 papers per cluster to the frontend
+        shuffled_papers = self.papers.copy()
+        random.shuffle(shuffled_papers)
+        for paper in shuffled_papers:
             if len(clusters[paper['cluster']]) < 25:
-                # Safely extract and truncate the abstract to save RAM
                 raw_abstract = str(paper.get('abstract', 'No abstract available.'))
                 short_abstract = raw_abstract[:250] + '...' if len(raw_abstract) > 250 else raw_abstract
                 
