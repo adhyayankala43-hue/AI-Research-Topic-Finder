@@ -66,12 +66,12 @@ class ResearchTopicFinder:
             topics[f"Topic {topic_idx + 1}"] = top_words
         return topics
 
-    def cluster_topics(self, n_clusters=3):
+    def cluster_topics(self, domain_filter=None, n_clusters=3):
         if not self.papers: return {}
         clusters = defaultdict(list)
         shuffled_papers = self.papers.copy()
         random.shuffle(shuffled_papers)
-        if domain_filter:
+        if domain_filter and domain_filter.lower() != "all":
             shuffled_papers = [p for p in shuffled_papers if p['domain'].lower() == domain_filter.lower()]
         for paper in shuffled_papers:
             if len(clusters[paper['cluster']]) < 25:
