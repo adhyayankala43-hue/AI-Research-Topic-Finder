@@ -229,6 +229,8 @@ async function loadDashboard() {
         
     } catch (error) {
         console.error("Error loading dashboard data:", error);
+        document.getElementById('latentTopicsRow').innerHTML = 
+            '<div class="alert alert-danger">Failed to load analytics. The server may be out of memory.</div>';
     } finally {
         // This line guarantees the infinite loading screen disappears
         hideLoader(); 
