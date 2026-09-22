@@ -12,19 +12,19 @@ def index():
 
 @app.route('/api/analytics', methods=['GET'])
 def get_analytics():
-    domain = request.args.get('domain', None)
+    domain = request.args.get('domain','All')
     if domain == "All":
         domain = None
     
-    trend_data = engine.analyze_trends(domain=domain)
-    clusters = engine.cluster_topics(n_clusters=3)
-    lda_topics = engine.extract_latent_topics(n_words=4)
+    topics = engine.extract_latent_topics()
+    clusters = engine.cluster_topics()
+    trends = engine.analyze_trends(domain)
     gaps = engine.identify_research_gaps()
 
     return jsonify({
-        'trends': trend_data,
+        'topics': topics,
         'clusters': clusters,
-        'topics': lda_topics,
+        'trends': trends,
         'gaps': gaps
     })
 
