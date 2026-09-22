@@ -17,21 +17,29 @@ class ResearchTopicFinder:
         print("Loading pre-trained AI models into RAM...")
         self.lemmatizer = WordNetLemmatizer()
         
-        # Safely load stopwords (Render will use the pre-built nltk_data folder)
+        # 1. Warm-up call to force NLTK to load dictionaries into RAM on boot
         try:
             self.lemmatizer.lemmatize("testing")
         except LookupError:
             print("Missing NLTK data. Downloading fallbacks...")
             nltk.download('wordnet', quiet=True, download_dir='./nltk_data')
             nltk.download('omw-1.4', quiet=True, download_dir='./nltk_data')
+            
+        # 2. Initialize and safely load stopwords
+        try:
+            self.stop_words = set(stopwords.words('english'))
+        except LookupError:
+            nltk.download('stopwords', quiet=True, download_dir='./nltk_data')
+            self.stop_words = set(stopwords.words('english'))
 
+        # 3. Add your custom academic stopwords
         self.stop_words = self.stop_words.union({
             'using', 'paper', 'approach', 'model', 'technique', 'analysis',
             'application', 'system', 'based', 'via', 'study', 'method'
         })
         
+        # 4. Load the pre-processed data and trained models instantly
         try:
-            # Read and decompress the JSON file on the fly
             with gzip.open('processed_corpus.json.gz', 'rt', encoding='utf-8') as f:
                 self.papers = json.load(f)
                 
@@ -40,7 +48,7 @@ class ResearchTopicFinder:
             self.lda_model = joblib.load('pretrained_lda.joblib')
             print("✅ Models loaded successfully!")
         except FileNotFoundError:
-            print("ERROR: Missing .joblib or .json files. Run train_backend.py first.")
+            print("ERROR: Missing .joblib or .json.gz files. Run train_backend.py first.")
             self.papers, self.vectorizer, self.tfidf_matrix, self.lda_model = [], None, None, None
 
     def clean_text(self, text):
