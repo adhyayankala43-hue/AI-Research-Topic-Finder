@@ -71,6 +71,8 @@ class ResearchTopicFinder:
         clusters = defaultdict(list)
         shuffled_papers = self.papers.copy()
         random.shuffle(shuffled_papers)
+        if domain_filter:
+            shuffled_papers = [p for p in shuffled_papers if p['domain'].lower() == domain_filter.lower()]
         for paper in shuffled_papers:
             if len(clusters[paper['cluster']]) < 25:
                 raw_abstract = str(paper.get('abstract', 'No abstract available.'))
