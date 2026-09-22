@@ -50,6 +50,10 @@ def export_report():
         headers={'Content-Disposition': 'attachment;filename=research_topic_report.json'}
     )
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True, port=8044)
+    # Fetch the dynamically assigned port from Render, fallback to local 8044
+    port = int(os.environ.get('PORT', 8044))
+    # Bind to 0.0.0.0 to allow external web traffic
     app.run(host='0.0.0.0', port=port, debug=False)
