@@ -29,10 +29,11 @@ class ResearchTopicFinder:
             'application', 'system', 'based', 'via', 'study', 'method'
         })
         
-        # Load the pre-processed data and trained models instantly
         try:
-            with open('processed_corpus.json', 'r') as f:
+            # Read and decompress the JSON file on the fly
+            with gzip.open('processed_corpus.json.gz', 'rt', encoding='utf-8') as f:
                 self.papers = json.load(f)
+                
             self.vectorizer = joblib.load('pretrained_vectorizer.joblib')
             self.tfidf_matrix = joblib.load('pretrained_tfidf.joblib')
             self.lda_model = joblib.load('pretrained_lda.joblib')
