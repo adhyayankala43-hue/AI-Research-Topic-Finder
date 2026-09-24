@@ -6,15 +6,35 @@ This document details the complete, production-ready codebase for the AI Researc
 
 
 AI-Research-Topic-Finder/
+
+
 │
+
+
 ├── app.py                      # Flask routing & REST API controller
+
+
 ├── topic_engine.py             # NLP preprocessing, clustering, and recommendation logic
+
+
 ├── requirements.txt            # Project dependencies
+
+
 ├── Procfile                    # Web service process configuration for deployment
+
+
 │
+
+
 ├── static/
+
+
 │   └── search.svg              # Navigation brand graphic asset
+
+
 │
+
+
 └── templates/
     └── index.html              # Frontend user interface dashboard
 
@@ -573,7 +593,10 @@ HTML
 </div>
 
 <script>
+    
+    
 let chartInstance = null;
+    
 
 function showLoader() {
     document.getElementById('loading-overlay').style.display = 'flex';
@@ -743,17 +766,31 @@ document.addEventListener('DOMContentLoaded', loadDashboard);
 </html>
 
 
+
+
 4. Dependencies & Deployment Configuration
 requirements.txt
 
 
 
 Plaintext
+
+
 Flask>=2.3.0
+
+
 gunicorn>=21.2.0
+
+
 scikit-learn>=1.3.0
+
+
 nltk>=3.8.1
+
+
 joblib>=1.3.0
+
+
 numpy>=1.24.0
 
 
