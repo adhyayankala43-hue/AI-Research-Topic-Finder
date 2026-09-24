@@ -105,7 +105,7 @@ Bash
 python app.py
 
 
-Open your browser and navigate to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+Open your browser and navigate to [http://127.0.0.1:5000/](http://127.0.0.1:8044/).
 
 API Reference
 GET /api/analytics
