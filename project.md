@@ -1,20 +1,37 @@
 ================================================================================
+
+
 PROJECT REPORT: AI RESEARCH TOPIC DISCOVERY SYSTEM
+
+
+
 ================================================================================
+
+
 Repository: https://github.com/adhyayankala43-hue/AI-Research-Topic-Finder.git
 Developer: Adhyayan Kala
 Organization: Data Alcott Systems
 Date: September 2026
 
 --------------------------------------------------------------------------------
+
+
 1. PROJECT TITLE
+
+
 --------------------------------------------------------------------------------
+
+
 AI Research Topic Discovery System: An Automated Machine Learning Pipeline 
 for Latent Topic Extraction, Trend Velocity Tracking, and Cross-Disciplinary 
 Literature Recommendations.
 
 --------------------------------------------------------------------------------
+
+
 2. PROJECT OVERVIEW
+
+
 --------------------------------------------------------------------------------
 The rapid volume of academic literature makes manual literature reviews and 
 paradigm tracking increasingly difficult across modern scientific domains. 
@@ -32,9 +49,17 @@ unexplored research gaps across disciplines. Designed for real-time exploratory
 workflows, the system provides an interactive dark-themed interface capable of 
 generating domain-constrained recommendations and exporting analytical reports.
 
+
+
 --------------------------------------------------------------------------------
+
+
 3. PROJECT OBJECTIVES
+
+
 --------------------------------------------------------------------------------
+
+
 * Automated Thematic Extraction: Apply unsupervised topic modeling techniques 
   to extract primary conceptual themes and characteristic keywords across 
   specialized scientific domains.
@@ -53,8 +78,14 @@ generating domain-constrained recommendations and exporting analytical reports.
   data pipeline capable of running complex NLP tasks within constrained cloud 
   environments (512 MB RAM limits) without latency degradation.
 
+
+
 --------------------------------------------------------------------------------
+
+
 4. TECHNICAL ARCHITECTURE
+
+
 --------------------------------------------------------------------------------
 4.1 Backend Processing & Machine Learning Pipeline:
 * Language & Core Runtime: Python 3.10+
@@ -93,8 +124,14 @@ generating domain-constrained recommendations and exporting analytical reports.
 4. Report Generation (`/api/export`): Serializes active analytic insights and 
    cluster metadata into a downloadable JSON payload.
 
+
+
 --------------------------------------------------------------------------------
+
+
 5. FUTURE SCOPE
+
+
 --------------------------------------------------------------------------------
 * Transformer-Based Semantic Embeddings: Upgrade the underlying TF-IDF vector 
   space to dense contextual embeddings using models such as SciBERT or Specter 
@@ -110,4 +147,6 @@ generating domain-constrained recommendations and exporting analytical reports.
 * User Profiling & Session History: Implement persistent database storage 
   (PostgreSQL/SQLite) to track user research history, save literature libraries, 
   and personalize recurring discovery alerts.
+
+
 ================================================================================
